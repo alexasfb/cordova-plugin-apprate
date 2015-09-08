@@ -55,7 +55,7 @@ AppRate = (function() {
         updateCounter('stop');
         AppRate.navigateToAppStore();
     }
-    return typeof (_base = AppRate.preferences.callbacks).onButtonClicked === "function" ? _base.onButtonClicked(buttonIndex) : void 0;
+    return typeof (_base = AppRate.preferences.callbacks).onButtonClicked == "function" ? _base.onButtonClicked(buttonIndex) : void 0;
   };
 
   updateCounter = function(action) {
@@ -80,12 +80,12 @@ AppRate = (function() {
 
   showDialog = function(immediately) {
     var localeObj, _base;
-    if (counter.countdown === AppRate.preferences.usesUntilPrompt || immediately) {
+    if (counter.countdown == AppRate.preferences.usesUntilPrompt || immediately) {
       if (!AppRate.preferences.useCustomRateDialog) {
         localeObj = AppRate.preferences.customLocale || Locales.getLocale(AppRate.preferences.useLanguage, AppRate.preferences.displayAppName);
         navigator.notification.confirm(localeObj.message, promptForRatingWindowButtonClickHandler, localeObj.title, [localeObj.cancelButtonLabel, localeObj.laterButtonLabel, localeObj.rateButtonLabel]);
       }
-      if (typeof (_base = AppRate.preferences.callbacks).onRateDialogShow === "function") {
+      if (typeof (_base = AppRate.preferences.callbacks).onRateDialogShow == "function") {
         _base.onRateDialogShow(promptForRatingWindowButtonClickHandler);
       }
     }
@@ -180,7 +180,7 @@ AppRate = (function() {
     if (immediately == null) {
       immediately = false;
     }
-    if (this.preferences.useLanguage === null) {
+    if (this.preferences.useLanguage == null) {
       navigator.globalization.getPreferredLanguage((function(_this) {
         return function(language) {
           _this.preferences.useLanguage = language.value;
